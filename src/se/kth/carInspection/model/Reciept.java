@@ -47,7 +47,9 @@ public class Reciept {
 	}
 	
 	public String toString(){
-		String cootent = " The receipt :";
+		String cootent = " The receipt :  " +"\n"+ "cost is "+ this.cost.getValue() +
+				"\n" + " the paid money is " + this.amount.getValue() + "\n" +
+				"the change is "+ this.change.getValue() ;
 		return cootent;
 	}
 

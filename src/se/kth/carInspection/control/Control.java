@@ -4,6 +4,7 @@ import se.kth.carInspection.integration.Printer;
 import se.kth.carInspection.integration.RegistryCreator;
 import se.kth.carInspection.integration.VehicleRegistrationRegistry;
 import se.kth.carInspection.model.Amount;
+import se.kth.carInspection.model.CashPayment;
 import se.kth.carInspection.model.CreditCardDTO;
 import se.kth.carInspection.model.GarageSystem;
 import se.kth.carInspection.model.InspectionListDTO;
@@ -18,7 +19,7 @@ public class Control {
 	private InspectionListDTO list;
 	private RegistryCreator registry;
 	private GarageSystem garage = new GarageSystem();
-	private VehicleRegistrationRegistry validationRegistry;
+	private VehicleRegistrationRegistry validationRegistry = new VehicleRegistrationRegistry();
 	private InspectionListDTO inspectionList;
 	private RegistrationLiscenceDTO registrationNumber ;	
 	
@@ -69,8 +70,9 @@ public class Control {
 
 		int amount = 0;
 		boolean valid = validationRegistry.checkValidRegistry(registrationNumber);
+		System.out.println(valid);
 		if (valid){
-			return this.inspectionList.getCost();
+			amount = this.inspectionList.getCost();
 			
 		}else {
 			//System.out.println("Your liscence is nt valid");
@@ -81,14 +83,12 @@ public class Control {
 	}
 
 	
-	public Reciept payCash(Amount cost,Amount paidmoney){
-		Reciept reciept = new Reciept();
-		reciept.setAmount(paidmoney);
-		reciept.setCost(cost);
-		reciept.setChange(new Amount(cost.getValue()-paidmoney.getValue()));
-
-
-		return reciept;
+	public String payCash(int cost,int paidmoney){
+		
+		CashPayment payment = new CashPayment(new Amount(cost),new Amount(paidmoney));
+		payment.fillRecieptDetails();
+		
+		return payment.getRecipt().toString();
 
 	}
 	

@@ -8,20 +8,20 @@ import se.kth.carInspection.model.*;
 
 public class VehicleRegistrationRegistry {
 	
-	private List <RegistrationLiscenceDTO> registryList;
+	private List <RegistrationLiscenceDTO> registryList = new ArrayList<RegistrationLiscenceDTO>();
 	
 	public VehicleRegistrationRegistry(){
 		
-		registryList = new ArrayList<>();
+		getDataFromDataBase();
+		System.out.println(registryList.get(1).getRegistrationNumber());
 	}
 	
 	
 	public boolean  checkValidRegistry(RegistrationLiscenceDTO number){
 		
 		for(RegistrationLiscenceDTO liscence : registryList){
-			if(liscence.equals(number)){
-			
-			return true;
+			if((liscence.getRegistrationNumber()).equals(number.getRegistrationNumber())){
+				return true;
 			}
 		}
 		return false;
@@ -29,6 +29,19 @@ public class VehicleRegistrationRegistry {
 	}
 	
 	public void getDataFromDataBase(){
+		
+		//add some data to data base
+		
+		RegistrationLiscenceDTO liscence1 = new RegistrationLiscenceDTO();
+		liscence1.setRegistrationNumber("43333");
+		registryList.add(liscence1);
+		RegistrationLiscenceDTO liscence2 = new RegistrationLiscenceDTO();
+		liscence2.setRegistrationNumber("123");
+		registryList.add(liscence2);
+		//read some data from dataBase
+		
+		
+		
 		
 	}
 

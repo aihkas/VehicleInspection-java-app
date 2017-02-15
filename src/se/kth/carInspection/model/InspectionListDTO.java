@@ -6,7 +6,7 @@ import java.util.List;
 
 public class InspectionListDTO {
 	
-	private int inspectionCost;
+	private int inspectionCost = 100 ;
 	private List<VehicleComponent>  componentsTocheck;
 	
 	
@@ -20,7 +20,4 @@ public class InspectionListDTO {
 		return this.componentsTocheck;
 	}
 	
-	
-	
-
 }

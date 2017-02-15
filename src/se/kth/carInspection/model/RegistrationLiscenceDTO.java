@@ -4,8 +4,7 @@ public class RegistrationLiscenceDTO {
 private String registrationNumber; 
 	
 	public  RegistrationLiscenceDTO(){
-		this.registrationNumber = null;
-		
+		this.registrationNumber = null;	
 	}
 	
 	public  RegistrationLiscenceDTO(String registrationNumber){
@@ -20,6 +19,14 @@ private String registrationNumber;
 	
 	public void setRegistrationNumber(String number){
 		this.registrationNumber = number;
+	}
+	
+	
+	public boolean equal(RegistrationLiscenceDTO liscence){
+		if(this.registrationNumber.equals(liscence.getRegistrationNumber())){
+			return true;
+		}
+		return false;
 	}
 
 }
