@@ -5,9 +5,9 @@ import java.sql.Date;
 public class Inspection {
 	private int inspectionNumber;
 	private Date inspectionDate;
-	private RegistrationLiscenceDTO registratioNumber ; 
+	private RegistrationLiscenceDTO registratioNumber  = new RegistrationLiscenceDTO("tttrree"); 
 	private VehicleComponent partToCheck ;
-	private InspectionStatus status; 
+	private InspectionStatus status=new InspectionStatus() ; 
 	
 	
 	public  Inspection(){
@@ -18,6 +18,7 @@ public class Inspection {
 		
 	    this.partToCheck = partToCheck;
 	    this.status.setStatus(status);
+	   
 	    
 		}
 	

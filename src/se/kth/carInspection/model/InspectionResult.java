@@ -13,10 +13,15 @@ public void addResult(VehicleComponent part, Inspection inspection){
 public String resultDescreption(){
 	String des ="";
 	for(Entry<VehicleComponent, Inspection> v:this.results.entrySet()){
+		//System.out.println(v.getValue().toString());
 		des +=""+ v.getValue().getRegistrationLiscence().getRegistrationNumber();
 		des+=v.getKey().getName();
 		des += "  ";
-		des += v.getValue().getStatus();
+		if(v.getValue().getStatus().getStatus())
+		des += "passed";
+		
+		if(!v.getValue().getStatus().getStatus())
+		des += "failed";
 		
 		des += "\n";
 	

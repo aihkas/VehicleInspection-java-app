@@ -150,7 +150,7 @@ public class Control {
 	}
 	
 	public void saveInspection(int index,boolean state){
-		VehicleComponent c =inspectionList.getPart(index);
+		VehicleComponent c = inspectionList.getPart(index);
 		Inspection inspection= new Inspection(c,state);
 		result.addResult(c, inspection);
 		//this.registry.get..getClass().getName().save();
@@ -159,6 +159,10 @@ public class Control {
 
 	public void saveInspectionResult(){
 
+	}
+	
+	public InspectionResult getResult(){
+		return this.result;
 	}
 
 

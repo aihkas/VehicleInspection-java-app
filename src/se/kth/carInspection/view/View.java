@@ -52,12 +52,22 @@ public class View {
 		//System.out.println(reciept);
 		control.print(control.payByCard(cost,creditCard));
 		
-		//////// checking
+		//////// checking the car
 		
 		      
 		    String[] listtocheck = control.doInspection();
 		    for(String o:listtocheck)
 				System.out.println(o);
+		    
+		    /// checker enters the result of the inspection
+		    control.saveInspection(0, true);
+		    control.saveInspection(1, false);
+		    control.saveInspection(2, true);
+		    control.saveInspection(3, true);
+		    control.saveInspection(4, false);
+		    
+		    control.printInspection(control.getResult());
+		    
 	}
 
 }
