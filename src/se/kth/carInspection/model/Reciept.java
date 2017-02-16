@@ -38,6 +38,7 @@ public class Reciept {
 
 
 	public Amount getChange() {
+		change = new Amount(amount.getValue()-cost.getValue());
 		return change;
 	}
 

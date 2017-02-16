@@ -2,7 +2,9 @@ package se.kth.carInspection.view;
 
 import se.kth.carInspection.control.Control;
 import se.kth.carInspection.model.Amount;
+import se.kth.carInspection.model.CreditCardDTO;
 import se.kth.carInspection.model.GarageSystem;
+import se.kth.carInspection.model.VehicleComponent;
 
 public class View {
 	
@@ -11,8 +13,9 @@ public class View {
 	String garageDoorState;
 	String enteredRegistrationNumber="123";
 	int cost;
-	int paidMoney = 5;
+	int paidMoney = 200;
 	String reciept = "";
+	CreditCardDTO creditCard = new CreditCardDTO("lolo", "koko", 8, 55);
 	
 	public View(Control control){
 		this.control = control;
@@ -30,6 +33,7 @@ public class View {
 		control.closeDoor();
 		garageDoorState = control.displayDoorState();
 		System.out.println("The door state is " + garageDoorState);
+		////
 		System.out.println("Inspector enters vehicle's registration number");
 		cost = control.enterRegistrationNum(enteredRegistrationNumber);
 		if(cost > 0){
@@ -39,10 +43,21 @@ public class View {
 			
 		}
 		
-		reciept = control.payCash(cost,paidMoney);
-		System.out.println(reciept);
+	//	reciept = control.payCash(cost,paidMoney);
+		//System.out.println(reciept);
+		control.print(control.payCash(cost,paidMoney));
 		
-				
+		//////card
+		//reciept = control.payByCard(cost, creditCard);
+		//System.out.println(reciept);
+		control.print(control.payByCard(cost,creditCard));
+		
+		//////// checking
+		
+		      
+		    String[] listtocheck = control.doInspection();
+		    for(String o:listtocheck)
+				System.out.println(o);
 	}
 
 }

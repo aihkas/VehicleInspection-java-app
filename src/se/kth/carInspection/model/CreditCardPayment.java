@@ -1,35 +1,25 @@
 package se.kth.carInspection.model;
 
-public class CreditCardPayment {
-	private boolean paymentStatus; 
-	private Reciept reciept; 
+import se.kth.carInspection.integration.PaymentAuthorization;
+
+public class CreditCardPayment  extends Payment{
+	
+	private CreditCardDTO creditCard;
+	
 	
 
-	public CreditCardPayment(Amount cost, CreditCardDTO creditCard ){
+	public CreditCardPayment( CreditCardDTO creditCard,Amount cost ){
+		super(cost);
+		this.creditCard = creditCard;
 		
 	}
 	
-	public  Amount PayCash(Amount amount , Amount cost ){
-		Amount amountValue = new Amount();
-		return amountValue;
-		
-		
-	} 
+	@Override
+	public void updatePaymentStatus(){
 	
-	public void upsatePaymentStatus(){
-		
-	
-	}
-	
-	public boolean getPymentStatus(){
-		
-		return false;
+		   if (new PaymentAuthorization().authorize(creditCard, cost))
+			this.paymentStatus = true;
 		
 	}
-	public Reciept fillRecieptDetails(){
-		return reciept;
-		
-	}
-
 
 }

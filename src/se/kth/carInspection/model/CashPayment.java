@@ -1,47 +1,42 @@
 package se.kth.carInspection.model;
 
-public class CashPayment {
-	private boolean paymentStatus = false;
-	private Reciept reciept ;
+public class CashPayment extends Payment {
+	
+	
 	private Amount amount;
-	private Amount cost;
-
+	
 
 	public CashPayment(Amount cost,  Amount paidMoney ){
-		this.amount = amount;
-		this.cost = cost;
-		reciept = new Reciept();
-		if (paidMoney.getValue() >= cost.getValue()) this.paymentStatus = true;
-    }
+		super(cost);
+		this.amount = paidMoney;
 		
-
+		
+    }
+	
+	
+	@Override
 	public void updatePaymentStatus(){
-		if (this.getPymentStatus()){
-			paymentStatus =  true;
+		int m = amount.getValue();
+		int n = cost.getValue();
+		if (m >= n) {
+			this.paymentStatus = true;
+			System.out.println(amount.getValue());
+			System.out.println(cost.getValue());
+			System.out.println(this.getPaymentStatus());
 		}
 	}
-
-	public boolean getPymentStatus(){
-
-		return this.paymentStatus;
-
-	}
 	
+   @Override
 	public Reciept fillRecieptDetails(){
-
-		
-		
-		if (this.getPymentStatus()){
+	
+		if (this.getPaymentStatus()){
 
 			reciept.setAmount(amount);
 			reciept.setCost(cost);
-			reciept.setChange(new Amount(cost.getValue()-amount.getValue()));
+			reciept.setChange(new Amount(amount.getValue()-cost.getValue()));
 		}
-		return reciept;
+		return this.reciept;
 
 	}
 	
-	public Reciept getRecipt(){
-		return this.reciept;
-	}
 }

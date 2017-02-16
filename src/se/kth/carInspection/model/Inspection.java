@@ -6,20 +6,32 @@ public class Inspection {
 	private int inspectionNumber;
 	private Date inspectionDate;
 	private RegistrationLiscenceDTO registratioNumber ; 
-	private VehicleComponent component ;
+	private VehicleComponent partToCheck ;
 	private InspectionStatus status; 
-	public VehicleComponent partToCheck; 
+	
 	
 	public  Inspection(){
     this.partToCheck = partToCheck;
     
 	}
+	public  Inspection(VehicleComponent partToCheck,boolean status){
+		
+	    this.partToCheck = partToCheck;
+	    this.status.setStatus(status);
+	    
+		}
 	
-	public void setStatus(InspectionResult result){
+	public void setStatus(InspectionStatus status){
+		this.status = status;
 		
 	}
 	public InspectionStatus getStatus(){
 		return status;
+		
+	} 
+	
+	public RegistrationLiscenceDTO getRegistrationLiscence(){
+		return registratioNumber;
 		
 	} 
 
