@@ -33,7 +33,13 @@ public class CashPaymentTest {
 	
 	@Test
 	public void testPaymentStatus(){
-		CashPayment payment = new CashPayment(100,200);
+		Amount cost = new Amount(100);
+		Amount pay = new Amount(100);
+		CashPayment payment = new CashPayment(cost,pay);
+		payment.updatePaymentStatus();
+		boolean state = payment.getPaymentStatus();
+		assertEquals("this shouls be true",true,state);
+		
 		
 	}
 
