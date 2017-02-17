@@ -8,7 +8,6 @@ public class QueueSystemTest {
 
 	@Test
 	public void test() {
-		//fail("Not yet implemented");
 	}
 	
 	@Test
@@ -16,9 +15,15 @@ public class QueueSystemTest {
 		
 		QueueSystem queue = new QueueSystem();
 		long number = (long)queue.getNumber();
-		//assertEqual();
-		assertEquals("The initial state if the number shouls be zero", 0, number);
-		
+		assertEquals("The initial state if the number shouls be zero", 0, number);	
+	}
+	
+	@Test 
+	public void testQueueNumberAfterIncrementing(){
+		QueueSystem queue = new QueueSystem();
+		queue.incrementQueue();
+		long number = (long)queue.getNumber();
+		assertEquals("The initial state if the number shouls be one", 1, number);	
 		
 	}
 		
