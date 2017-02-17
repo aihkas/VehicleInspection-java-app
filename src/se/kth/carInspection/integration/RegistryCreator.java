@@ -4,6 +4,11 @@ public class RegistryCreator {
 	InspectionRegistry inspectonRegistry;
 	VehicleRegistrationRegistry vehicleRegistry;
 	
+	public RegistryCreator(){
+		inspectonRegistry = new InspectionRegistry();
+		vehicleRegistry = new VehicleRegistrationRegistry();
+	}
+	
 	
 	
      public InspectionRegistry getInspectionRegistry(){

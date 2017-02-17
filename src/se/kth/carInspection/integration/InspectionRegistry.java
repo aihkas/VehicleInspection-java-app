@@ -6,12 +6,12 @@ public class InspectionRegistry {
 	private InspectionResult result;
 	
 	public void save(InspectionResult result){
-		///do the save
+		///do the save at the data base
 		
 	}
 	
 	public InspectionResult getInspectionResult(){
-		///do the save
+		///get the result from the data base
 		return this.result;
 	}
 

@@ -17,5 +17,10 @@ public class Printer {
 		// TODO Auto-generated method stub
 		System.out.println(resultDescreption);
 	}
+	
+	public void print(Object obj) {
+		// TODO Auto-generated method stub
+		System.out.println(obj.toString());
+	}
 
 }
