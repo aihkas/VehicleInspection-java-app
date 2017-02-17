@@ -12,7 +12,6 @@ import se.kth.carInspection.model.GarageSystem;
 import se.kth.carInspection.model.Inspection;
 import se.kth.carInspection.model.InspectionList;
 import se.kth.carInspection.model.InspectionResult;
-import se.kth.carInspection.model.InspectionStatus;
 import se.kth.carInspection.model.Payment;
 import se.kth.carInspection.model.Reciept;
 import se.kth.carInspection.model.RegistrationLiscenceDTO;
@@ -107,7 +106,7 @@ public class Control {
 		
 		
 
-		return new Reciept(payment);
+		return payment.fillRecieptDetails();
 
 	}
 
@@ -125,9 +124,9 @@ public class Control {
 		System.out.println(payment.getPaymentStatus());
 		
 		
-		
+		Reciept r = payment.fillRecieptDetails();
 
-		return new Reciept(payment);
+		return payment.fillRecieptDetails();
 	}
 
 
@@ -150,19 +149,15 @@ public class Control {
 
 	}
 	
-	public void saveInspection(int index,boolean state,String number){
-		registrationNumber= new RegistrationLiscenceDTO(number);
-		
+	public void saveInspection(int index,boolean state){
 		VehicleComponent c = inspectionList.getPart(index);
-		Inspection inspection= new Inspection(c,registrationNumber);
-		inspection.setStatus(new InspectionStatus(state));
-		result.addResult(inspection);
-		
+		Inspection inspection= new Inspection(c,state);
+		result.addResult(c, inspection);
+		//this.registry.get..getClass().getName().save();
 		
 	}
 
 	public void saveInspectionResult(){
-		this.registry.getInspectionRegistry().save(result);
 
 	}
 	
@@ -172,12 +167,12 @@ public class Control {
 
 
 	public void printInspection(InspectionResult result ){
-		 printer.print(result);
+		 printer.print(result.resultDescreption());
 
 	}
 	
 	public void print(Reciept reciept){
-		printer.print(reciept);
+		printer.printReciept(reciept);
 		
 	}
 	

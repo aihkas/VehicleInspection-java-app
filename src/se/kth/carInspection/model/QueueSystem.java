@@ -2,7 +2,7 @@ package se.kth.carInspection.model;
 
 public class QueueSystem {
 	 
-	private int number = 0;
+	private static int number = 0;
 	
 	public void incrementQueue(){
 		this.number = this.number + 1;

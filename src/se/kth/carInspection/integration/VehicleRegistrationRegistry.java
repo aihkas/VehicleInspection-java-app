@@ -32,11 +32,11 @@ public class VehicleRegistrationRegistry {
 		
 		//add some data to data base
 		
-		RegistrationLiscenceDTO liscence1 = new RegistrationLiscenceDTO("43333");
-		
+		RegistrationLiscenceDTO liscence1 = new RegistrationLiscenceDTO();
+		liscence1.setRegistrationNumber("43333");
 		registryList.add(liscence1);
-		RegistrationLiscenceDTO liscence2 = new RegistrationLiscenceDTO("123");
-		
+		RegistrationLiscenceDTO liscence2 = new RegistrationLiscenceDTO();
+		liscence2.setRegistrationNumber("123");
 		registryList.add(liscence2);
 		//read some data from dataBase
 		

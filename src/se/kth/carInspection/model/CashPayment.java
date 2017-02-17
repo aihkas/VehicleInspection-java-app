@@ -16,8 +16,9 @@ public class CashPayment extends Payment {
 	
 	@Override
 	public void updatePaymentStatus(){
-		
-		if (amount.getValue() >= cost.getValue()) {
+		int m = amount.getValue();
+		int n = cost.getValue();
+		if (m >= n) {
 			this.paymentStatus = true;
 			System.out.println(amount.getValue());
 			System.out.println(cost.getValue());
@@ -25,8 +26,17 @@ public class CashPayment extends Payment {
 		}
 	}
 	
-  
-
+   @Override
+	public Reciept fillRecieptDetails(){
 	
+		if (this.getPaymentStatus()){
+
+			reciept.setAmount(amount);
+			reciept.setCost(cost);
+			reciept.setChange(new Amount(amount.getValue()-cost.getValue()));
+		}
+		return this.reciept;
+
+	}
 	
 }

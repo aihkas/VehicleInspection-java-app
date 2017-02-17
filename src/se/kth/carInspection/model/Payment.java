@@ -3,22 +3,13 @@ package se.kth.carInspection.model;
 public class Payment {
 	protected boolean paymentStatus = false;
 	protected Amount cost;
-	protected Amount amount;
-	//protected Reciept reciept = new Reciept() ;
+	protected Reciept reciept = new Reciept() ;
 	
 	public Payment(Amount cost) {
 		super();
 		this.cost = cost;
-		this.amount = cost;
 	}
-     
-	public Amount getCost(){
-		return this.cost;
-	}
-	
-	public Amount getAmount(){
-		return this.amount;
-	}
+
 
 	public void updatePaymentStatus(){
 		this.paymentStatus = true;
@@ -31,6 +22,23 @@ public class Payment {
 
 	}
 	
+	public Reciept fillRecieptDetails(){
+
+		System.out.println("again  "+this.getPaymentStatus());
+		
+		if (this.getPaymentStatus()){
+
+			reciept.setAmount(cost);
+			reciept.setCost(cost);
+		//	reciept.setChange(new Amount(cost.getValue()-amount.getValue()));
+		}
+		return this.reciept;
+
+	}
 	
+	public Reciept getRecipt(){
+		return this.reciept;
+	}
+
 
 }

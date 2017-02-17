@@ -4,23 +4,23 @@ import java.sql.Date;
 
 public class Inspection {
 	private int inspectionNumber;
-	private long inspectionDate;
-	private RegistrationLiscenceDTO registrationNumber ; 
+	private Date inspectionDate;
+	private RegistrationLiscenceDTO registratioNumber  = new RegistrationLiscenceDTO("tttrree"); 
 	private VehicleComponent partToCheck ;
-	private InspectionStatus status = new InspectionStatus() ; 
+	private InspectionStatus status=new InspectionStatus() ; 
 	
 	
 	public  Inspection(){
-    
+    this.partToCheck = partToCheck;
     
 	}
-	public  Inspection(VehicleComponent partToCheck,RegistrationLiscenceDTO registrationNumber){
+	public  Inspection(VehicleComponent partToCheck,boolean status){
 		
 	    this.partToCheck = partToCheck;
-	    this.registrationNumber = registrationNumber;
-	    this.inspectionDate = System.currentTimeMillis();
+	    this.status.setStatus(status);
+	   
+	    
 		}
-
 	
 	public void setStatus(InspectionStatus status){
 		this.status = status;
@@ -32,32 +32,8 @@ public class Inspection {
 	} 
 	
 	public RegistrationLiscenceDTO getRegistrationLiscence(){
-		return registrationNumber;
+		return registratioNumber;
 		
-	}
-	public int getInspectionNumber() {
-		return inspectionNumber;
-	}
-	public void setInspectionNumber(int inspectionNumber) {
-		this.inspectionNumber = inspectionNumber;
-	}
-	public Long getInspectionDate() {
-		return inspectionDate;
-	}
-	public void setInspectionDate(Long inspectionDate) {
-		this.inspectionDate = inspectionDate;
-	}
-	public RegistrationLiscenceDTO getRegistrationNumber() {
-		return registrationNumber;
-	}
-	public void setRegistratioNumber(RegistrationLiscenceDTO registratioNumber) {
-		this.registrationNumber = registratioNumber;
-	}
-	public VehicleComponent getPartToCheck() {
-		return partToCheck;
-	}
-	public void setPartToCheck(VehicleComponent partToCheck) {
-		this.partToCheck = partToCheck;
 	} 
 
 }
