@@ -11,7 +11,7 @@ public class InspectionRegistry {
 	}
 	
 	public InspectionResult getInspectionResult(){
-		///do the save
+		///connect to the data base and get the result.
 		return this.result;
 	}
 

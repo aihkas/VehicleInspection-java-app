@@ -4,7 +4,7 @@ package se.kth.carInspection.model;
 public class Amount {
 	
 	private String currency;
-	private int value;
+	private final int value;
 	
 	
 	public Amount() {
@@ -12,8 +12,8 @@ public class Amount {
 		this.currency = "$";
 		this.value = 0;
 	}
+	
 	public Amount( int value) {
-		super();
 		this.currency = "$";
 		this.value = value;
 	}
@@ -24,8 +24,6 @@ public class Amount {
 		this.value = value;
 	}
 	
-
-
 	public String getCurrency() {
 		return currency;
 	}
@@ -35,8 +33,17 @@ public class Amount {
 	public int getValue() {
 		return value;
 	}
-	public void setValue(int value) {
-		this.value = value;
+	
+	public Amount minus(Amount otherAmount)
+	{
+		return new Amount(this.value - otherAmount.getValue());
+		
 	}
-
+	
+	public Amount add(Amount otherAmount)
+	{
+		return new Amount(this.value + otherAmount.getValue());
+		
+	}
+	
 }

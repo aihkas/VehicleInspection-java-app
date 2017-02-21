@@ -1,11 +1,12 @@
 package se.kth.carInspection.model;
 
+import java.util.ArrayList;
+
 public class CashPayment extends Payment {
 	
 	
 	private Amount amount;
 	
-
 	public CashPayment(Amount cost,  Amount paidMoney ){
 		super(cost);
 		this.amount = paidMoney;
@@ -13,30 +14,33 @@ public class CashPayment extends Payment {
 		
     }
 	
-	
-	@Override
-	public void updatePaymentStatus(){
-		int m = amount.getValue();
-		int n = cost.getValue();
-		if (m >= n) {
+    /**
+     *
+     * @throws NegativeAmountException
+     * @throws InsufficientPaidAmount
+     */
+    @Override
+	public void updatePaymentStatus() throws NegativeAmountException,InsufficientPaidAmount {
+		
+             //   if(amount.getValue()<cost.getValue()) {throw new InsufficientPaidAmount(amount); }
+		if (amount.getValue() <= 0) {
+                    //throw new NegativeAmountException(amount.getValue());
+              
+    throw new NegativeAmountException(amount.getValue());
+                }
+                else {
 			this.paymentStatus = true;
 			System.out.println(amount.getValue());
 			System.out.println(cost.getValue());
 			System.out.println(this.getPaymentStatus());
 		}
-	}
-	
-   @Override
-	public Reciept fillRecieptDetails(){
-	
-		if (this.getPaymentStatus()){
+                }
+        
+               
 
-			reciept.setAmount(amount);
-			reciept.setCost(cost);
-			reciept.setChange(new Amount(amount.getValue()-cost.getValue()));
-		}
-		return this.reciept;
-
-	}
+      }
 	
-}
+  
+	
+	
+

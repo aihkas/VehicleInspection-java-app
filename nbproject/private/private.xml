@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/model/Payment.java</file>
+            <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/startUp/Main.java</file>
+            <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/model/CashPayment.java</file>
+            <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/model/GarageSystemTest.java</file>
+            <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/view/View.java</file>
+            <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/model/Reciept.java</file>
+            <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/model/VehicleComponent.java</file>
+            <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/model/NegativeAmountException.java</file>
+            <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/control/Control.java</file>
+            <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/model/Amount.java</file>
+            <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/model/QueueSystemTest.java</file>
+            <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/model/InsufficientPaidAmount.java</file>
+            <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/view/Viewb.java</file>
+            <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/test/se/kth/carInspection/model/CashPaymentTest.java</file>
+            <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/model/Inspection.java</file>
+        </group>
+    </open-files>
+</project-private>

@@ -13,9 +13,9 @@ public class Printer {
 		
 	}
 
-	public void print(String resultDescreption) {
+	public String print(Object obj) {
 		// TODO Auto-generated method stub
-		System.out.println(resultDescreption);
+		return(obj.toString());
 	}
 
 }

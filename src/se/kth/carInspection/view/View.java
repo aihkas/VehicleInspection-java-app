@@ -42,29 +42,25 @@ public class View {
 			System.out.println("your liscence number is not valid");
 			
 		}
-		
-	//	reciept = control.payCash(cost,paidMoney);
-		//System.out.println(reciept);
+	
 		control.print(control.payCash(cost,paidMoney));
 		
-		//////card
-		//reciept = control.payByCard(cost, creditCard);
-		//System.out.println(reciept);
+		/////////
 		control.print(control.payByCard(cost,creditCard));
 		
 		//////// checking the car
 		
 		      
-		    String[] listtocheck = control.doInspection();
+		    String[] listtocheck = control.displayInspectionList();
 		    for(String o:listtocheck)
 				System.out.println(o);
 		    
 		    /// checker enters the result of the inspection
-		    control.saveInspection(0, true);
-		    control.saveInspection(1, false);
-		    control.saveInspection(2, true);
-		    control.saveInspection(3, true);
-		    control.saveInspection(4, false);
+		    control.saveInspection(0, true,"123");
+		    control.saveInspection(1, false ,"123");
+		    control.saveInspection(2, true ,"123");
+		    control.saveInspection(3, true,"123");
+		    control.saveInspection(4, false,"123");
 		    
 		    control.printInspection(control.getResult());
 		    

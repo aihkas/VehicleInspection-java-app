@@ -2,16 +2,17 @@ package se.kth.carInspection.model;
 
 public class CashRegistery {
 	
-private Amount cashBalance ;
+private  Amount cashBalance ;
 	
 	public  CashRegistery(){
 		cashBalance = new Amount(0);
 		
 	}
-	public void addCashMoney(Amount addedMoney){
-	    
-		int newValue = this.cashBalance.getValue() + addedMoney.getValue();
-		this.cashBalance.setValue(newValue);
+	public void addCashMoney(Amount addedMoney,CashPayment payment){
+		
+		if(payment.getPaymentStatus()) {
+		this.cashBalance = this.cashBalance.add(addedMoney);
+		}
 		
 	}
 	public Amount getCashBalance(){

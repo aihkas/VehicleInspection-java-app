@@ -12,6 +12,8 @@ import se.kth.carInspection.model.GarageSystem;
 import se.kth.carInspection.model.Inspection;
 import se.kth.carInspection.model.InspectionList;
 import se.kth.carInspection.model.InspectionResult;
+import se.kth.carInspection.model.InspectionStatus;
+import se.kth.carInspection.model.NegativeAmountException;
 import se.kth.carInspection.model.Payment;
 import se.kth.carInspection.model.Reciept;
 import se.kth.carInspection.model.RegistrationLiscenceDTO;
@@ -21,7 +23,6 @@ import se.kth.carInspection.view.View;
 
 public class Control {
 	private Printer printer;
-	private InspectionList list;
 	private RegistryCreator registry;
 	private GarageSystem garage = new GarageSystem();
 	private VehicleRegistrationRegistry validationRegistry = new VehicleRegistrationRegistry();
@@ -34,7 +35,7 @@ public class Control {
 	public Control(Printer printer,InspectionList inspectionlist,RegistryCreator registery){
 
 		this.printer = printer;
-		this.list= list;
+		this.inspectionList = inspectionList;
 		this.registry = registry;
 		this.garage = garage;
 		this.inspectionList = inspectionlist;
@@ -71,6 +72,11 @@ public class Control {
 		garage.closeDoor();
 
 	}
+        public void openDoor(){
+		garage.openDoor();
+
+	}
+        
 
 	public int enterRegistrationNum(String number){
 		registrationNumber= new RegistrationLiscenceDTO(number);
@@ -92,28 +98,19 @@ public class Control {
 	}
 
 
-	public Reciept payCash(int cost,int paidmoney){
+	public Reciept payCash(int cost,int paidmoney) throws NegativeAmountException{
 		
 
 		CashPayment payment = new CashPayment(new Amount(cost),new Amount(paidmoney));
 		System.out.println(payment.getPaymentStatus());
 		payment.updatePaymentStatus();
+		this.cashRegistery.addCashMoney(new Amount(cost),payment);
 		System.out.println(payment.getPaymentStatus());
-		if(payment.getPaymentStatus()) {
-			updateCashRegister(new Amount(cost));
-			System.out.println("khkhkkhk"+this.cashRegistery.getCashBalance().getValue());
-		}
-		
-		
-
-		return payment.fillRecieptDetails();
+		return new Reciept(payment);
 
 	}
 
-	public void updateCashRegister( Amount amount){
-		this.cashRegistery.addCashMoney(amount);
-
-	}
+	
 
 
 	public Reciept payByCard( int cost , CreditCardDTO creditCard){
@@ -122,11 +119,7 @@ public class Control {
 		System.out.println(payment.getPaymentStatus());
 		payment.updatePaymentStatus();
 		System.out.println(payment.getPaymentStatus());
-		
-		
-		Reciept r = payment.fillRecieptDetails();
-
-		return payment.fillRecieptDetails();
+		return new Reciept(payment);
 	}
 
 
@@ -135,7 +128,7 @@ public class Control {
 	}
 
 
-	public String[] doInspection(){
+	public String[] displayInspectionList(){
 	   int size = inspectionList.getInspectionList().size();
 		String[] s= new String[size];
 		int index=0;
@@ -149,15 +142,16 @@ public class Control {
 
 	}
 	
-	public void saveInspection(int index,boolean state){
-		VehicleComponent c = inspectionList.getPart(index);
-		Inspection inspection= new Inspection(c,state);
-		result.addResult(c, inspection);
-		//this.registry.get..getClass().getName().save();
-		
+	public void saveInspection(int index,boolean state,String number){
+		registrationNumber= new RegistrationLiscenceDTO(number);	
+		VehicleComponent componentToInspect = inspectionList.getPart(index);
+		Inspection inspection= new Inspection(componentToInspect,registrationNumber);
+		inspection.setStatus(new InspectionStatus(state));
+		result.addResult(inspection);			
 	}
 
 	public void saveInspectionResult(){
+		this.registry.getInspectionRegistry().save(result);
 
 	}
 	
@@ -166,13 +160,13 @@ public class Control {
 	}
 
 
-	public void printInspection(InspectionResult result ){
-		 printer.print(result.resultDescreption());
+	public String printInspection(InspectionResult result ){
+		return printer.print(result);
 
 	}
 	
 	public void print(Reciept reciept){
-		printer.printReciept(reciept);
+		printer.print(reciept);
 		
 	}
 	

@@ -27,14 +27,15 @@ public class InspectionList {
 
 	public void calculateCost(){
 
-		Amount price = new Amount(0);
+		
 		int priceValue = 0 ;
 
 		for(VehicleComponent component:componentsTocheck){
 			priceValue += component.getfixPrice().getValue();	
 		}
 
-		price.setValue(priceValue);
+		Amount price = new Amount(priceValue);
+		inspectionCost = price.getValue();
 	}
 	
 	public void addComponentToCheckList(VehicleComponent component){

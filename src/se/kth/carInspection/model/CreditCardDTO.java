@@ -16,6 +16,34 @@ public class CreditCardDTO {
 		this.expiryDate = expiryDate;
 		this.cvc = cvc;
 	}
-	
+
+	/**
+	 * @return the cardNumber
+	 */
+	public String getCardNumber() {
+		return cardNumber;
+	}
+
+	/**
+	 * @return the holder
+	 */
+	public String getHolder() {
+		return holder;
+	}
+
+	/**
+	 * @return the expiryDate
+	 */
+	public int getExpiryDate() {
+		return expiryDate;
+	}
+
+	/**
+	 * @return the cvc
+	 */
+	public int getCvc() {
+		return cvc;
+	}
+
 
 }
