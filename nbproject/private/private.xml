@@ -8,16 +8,23 @@
             <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/model/CashPayment.java</file>
             <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/model/GarageSystemTest.java</file>
             <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/view/View.java</file>
+            <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/view/InspectionStatsView.java</file>
             <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/model/Reciept.java</file>
             <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/model/VehicleComponent.java</file>
+            <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/model/InvalidLicenseException.java</file>
             <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/model/NegativeAmountException.java</file>
+            <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/model/StatisticsObserver.java</file>
             <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/control/Control.java</file>
             <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/model/Amount.java</file>
+            <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/model/InspectionResult.java</file>
             <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/model/QueueSystemTest.java</file>
+            <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/model/InspectionList.java</file>
+            <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/startUp/MainConsole.java</file>
             <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/model/InsufficientPaidAmount.java</file>
             <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/view/Viewb.java</file>
             <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/test/se/kth/carInspection/model/CashPaymentTest.java</file>
             <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/model/Inspection.java</file>
+            <file>file:/afs/kth.se/home/tmp/1009/tmpuser-10215/VehicleInspection/src/se/kth/carInspection/integration/VehicleRegistrationRegistry.java</file>
         </group>
     </open-files>
 </project-private>

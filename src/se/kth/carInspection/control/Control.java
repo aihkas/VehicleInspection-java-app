@@ -13,6 +13,8 @@ import se.kth.carInspection.model.Inspection;
 import se.kth.carInspection.model.InspectionList;
 import se.kth.carInspection.model.InspectionResult;
 import se.kth.carInspection.model.InspectionStatus;
+import se.kth.carInspection.model.InsufficientPaidAmount;
+import se.kth.carInspection.model.InvalidLicenseException;
 import se.kth.carInspection.model.NegativeAmountException;
 import se.kth.carInspection.model.Payment;
 import se.kth.carInspection.model.Reciept;
@@ -78,7 +80,7 @@ public class Control {
 	}
         
 
-	public int enterRegistrationNum(String number){
+	public int enterRegistrationNum(String number) throws InvalidLicenseException{
 		registrationNumber= new RegistrationLiscenceDTO(number);
 
 		int amount = 0;
@@ -98,7 +100,7 @@ public class Control {
 	}
 
 
-	public Reciept payCash(int cost,int paidmoney) throws NegativeAmountException{
+	public Reciept payCash(int cost,int paidmoney) throws NegativeAmountException, InsufficientPaidAmount{
 		
 
 		CashPayment payment = new CashPayment(new Amount(cost),new Amount(paidmoney));
@@ -147,7 +149,9 @@ public class Control {
 		VehicleComponent componentToInspect = inspectionList.getPart(index);
 		Inspection inspection= new Inspection(componentToInspect,registrationNumber);
 		inspection.setStatus(new InspectionStatus(state));
-		result.addResult(inspection);			
+                inspection.updateStats(result);
+		result.addResult(inspection);
+                
 	}
 
 	public void saveInspectionResult(){

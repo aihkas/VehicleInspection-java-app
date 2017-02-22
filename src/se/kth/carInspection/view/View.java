@@ -35,7 +35,7 @@ public class View {
 		System.out.println("The door state is " + garageDoorState);
 		////
 		System.out.println("Inspector enters vehicle's registration number");
-		cost = control.enterRegistrationNum(enteredRegistrationNumber);
+	//	cost = control.enterRegistrationNum(enteredRegistrationNumber);
 		if(cost > 0){
 			System.out.println("The cost for the inspection is    "+ cost);
 		}else {
@@ -43,7 +43,7 @@ public class View {
 			
 		}
 	
-		control.print(control.payCash(cost,paidMoney));
+//		control.print(control.payCash(cost,paidMoney));
 		
 		/////////
 		control.print(control.payByCard(cost,creditCard));

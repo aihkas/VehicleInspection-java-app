@@ -8,11 +8,18 @@ package se.kth.carInspection.view;
 
 
 import java.awt.Color;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import se.kth.carInspection.control.Control;
 import se.kth.carInspection.model.CreditCardDTO;
 import se.kth.carInspection.model.Reciept;
 import javax.swing.event.*;
+import se.kth.carInspection.model.InsufficientPaidAmount;
+import se.kth.carInspection.model.InvalidLicenseException;
+import se.kth.carInspection.model.NegativeAmountException;
 import se.kth.carInspection.model.RegistrationLiscenceDTO;
 
 
@@ -50,7 +57,7 @@ public class Viewb extends javax.swing.JFrame  {
         myInit();
     }
     
-    public void cashInput(){
+    public void cashInput() throws NegativeAmountException, InsufficientPaidAmount {
         
         JLabel totalcost = new JLabel();
         totalcost.setText(Integer.toString(cost));
@@ -105,7 +112,7 @@ public class Viewb extends javax.swing.JFrame  {
         
     }
     
-    public void vehicleInput (){
+    public void vehicleInput () throws InvalidLicenseException{
         JTextField RegistrationNumber = new JTextField();
         
         final JComponent[] inputs = new JComponent[] {
@@ -478,14 +485,27 @@ public class Viewb extends javax.swing.JFrame  {
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         //if (jButton3.getText().contentEquals("opened")) {
+       try{
         control.closeDoor();
         jLabel6.setText(control.displayDoorState());
         jLabel6.setForeground(Color.red);
         vehicleInput();
+       }
+       catch (InvalidLicenseException e) {
+         JOptionPane.showConfirmDialog(null,new JLabel("caught InvalidLicenseException: "+e.toString()), "Exception", JOptionPane.PLAIN_MESSAGE);
+       
+
+       }
     }//GEN-LAST:event_jButton3ActionPerformed
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      cashInput();
+        try {
+            cashInput();
+        } catch (NegativeAmountException ex) {
+            System.out.println(ex);
+        } catch (InsufficientPaidAmount ex) {
+            Logger.getLogger(Viewb.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
     
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

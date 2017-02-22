@@ -7,7 +7,8 @@ public class Inspection {
 	private long inspectionDate;
 	private RegistrationLiscenceDTO registrationNumber ; 
 	private VehicleComponent partToCheck ;
-	private InspectionStatus status = new InspectionStatus() ; 
+	private InspectionStatus status = new InspectionStatus() ;
+        
 	
 	
 	public  Inspection(){
@@ -21,6 +22,9 @@ public class Inspection {
 	    this.inspectionDate = System.currentTimeMillis();
 		}
 
+        public void updateStats(StatisticsObserver stats) {
+        stats.evaluate(this);
+}
 	
 	public void setStatus(InspectionStatus status){
 		this.status = status;
