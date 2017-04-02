@@ -15,7 +15,7 @@ public class InvalidLicenseException extends Exception {
         this.licenseNumber=licenseNumber;
     }
     @Override
-    public String toString (){
+    public String getMessage (){
         return "this license "+licenseNumber+" has no inspections to do";
     }
 }

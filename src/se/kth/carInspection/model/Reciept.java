@@ -7,14 +7,14 @@ public class Reciept {
 	private Amount cost;
 	private Amount amount;
 //	private Payment payment;
-	//private Amount change;
+	private Amount change;
 	
 	
 	public Reciept(){
 		
 		this.cost = new Amount("$", 0);
 		this.amount = new Amount("$", 0);
-		//this.change = new Amount("$", 0);
+		this.change = new Amount("$", 0);
 	}
 	
 public Reciept(Payment currentPayment){
@@ -22,6 +22,7 @@ public Reciept(Payment currentPayment){
 	 //   this.payment = currentPayment;
 		this.cost = currentPayment.cost;
 		this.amount = currentPayment.amount;
+                this.change= new Amount("$",amount.getValue()-cost.getValue());
 		
 	}
 
@@ -59,10 +60,10 @@ public Reciept(Payment currentPayment){
 	
 	
 	public String toString(){
-		String cootent = " The receipt : " +"\n"+ "The cost : "+ this.cost.getValue() + cost.getCurrency()+
+		String content = " The receipt : " +"\n"+ "The cost : "+ this.cost.getValue() + cost.getCurrency()+
 				"\n" + "The paid money : " + this.amount.getValue() + this.amount.getCurrency()+"\n" +
 				"The change : "+ (this.amount.getValue()-this.cost.getValue()) + this.amount.getCurrency();
-		return cootent;
+		return content;
 	}
 
 }

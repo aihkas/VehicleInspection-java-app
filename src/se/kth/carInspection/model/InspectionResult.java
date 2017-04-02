@@ -1,18 +1,14 @@
 package se.kth.carInspection.model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map.Entry;
-import se.kth.carInspection.view.InspectionStatsView;
 
 public class InspectionResult {
 private List<Inspection> results = new ArrayList<Inspection>();
-StatisticsObserver inspectionStats;
 
-public void addResult(Inspection inspection){
+public void addResult(Inspection inspection,StatisticsObserver stats ){
 	results.add(inspection);
-        inspectionStats.evaluate(inspection);
+        stats.evaluate(inspection);
 }
 
 @Override
@@ -34,9 +30,7 @@ public String toString(){
 	}
 	return des;
 }
-public void addObserver(StatisticsObserver stats){
-    this.inspectionStats=stats;
-}
+
 
     
   

@@ -7,9 +7,12 @@ public class Payment {
 	//protected Reciept reciept = new Reciept() ;
 	
 	public Payment(Amount cost) {
-		super();
 		this.cost = cost;
 		this.amount = cost;
+	}
+        public Payment(Amount cost, Amount amount) {
+		this.cost = cost;
+		this.amount = amount;
 	}
      
 	public Amount getCost(){
@@ -20,7 +23,7 @@ public class Payment {
 		return this.amount;
 	}
 
-	public void updatePaymentStatus()throws NegativeAmountException,InsufficientPaidAmount{
+	public void updatePaymentStatus()throws NegativeAmountException{
 		this.paymentStatus = true;
 		
 	}

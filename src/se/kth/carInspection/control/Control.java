@@ -13,14 +13,13 @@ import se.kth.carInspection.model.Inspection;
 import se.kth.carInspection.model.InspectionList;
 import se.kth.carInspection.model.InspectionResult;
 import se.kth.carInspection.model.InspectionStatus;
-import se.kth.carInspection.model.InsufficientPaidAmount;
 import se.kth.carInspection.model.InvalidLicenseException;
 import se.kth.carInspection.model.NegativeAmountException;
-import se.kth.carInspection.model.Payment;
 import se.kth.carInspection.model.Reciept;
 import se.kth.carInspection.model.RegistrationLiscenceDTO;
+import se.kth.carInspection.model.StatisticsObserver;
 import se.kth.carInspection.model.VehicleComponent;
-import se.kth.carInspection.view.View;
+
 
 
 public class Control {
@@ -84,23 +83,23 @@ public class Control {
 		registrationNumber= new RegistrationLiscenceDTO(number);
 
 		int amount = 0;
-		boolean valid = validationRegistry.checkValidRegistry(registrationNumber);
-		System.out.println(valid);
-		if (valid){
+		validationRegistry.checkValidRegistry(registrationNumber);
+		//System.out.println(valid);
+		
 			// in case the price is not fixed for all cars
 			//this.inspectionList.calculateCost();
 			amount = this.inspectionList.getCost();
 
-		}else {
+		
 			//System.out.println("Your liscence is nt valid");
-		}
+		
 
 		return amount;
 
 	}
 
 
-	public Reciept payCash(int cost,int paidmoney) throws NegativeAmountException, InsufficientPaidAmount{
+	public Reciept payCash(int cost,int paidmoney) throws NegativeAmountException{
 		
 
 		CashPayment payment = new CashPayment(new Amount(cost),new Amount(paidmoney));
@@ -144,13 +143,14 @@ public class Control {
 
 	}
 	
-	public void saveInspection(int index,boolean state,String number){
+	
+        public void saveInspection(int index,boolean state,String number,StatisticsObserver stats){
 		registrationNumber= new RegistrationLiscenceDTO(number);	
 		VehicleComponent componentToInspect = inspectionList.getPart(index);
 		Inspection inspection= new Inspection(componentToInspect,registrationNumber);
 		inspection.setStatus(new InspectionStatus(state));
-                inspection.updateStats(result);
-		result.addResult(inspection);
+             //   inspection.updateStats(stats);
+		result.addResult(inspection,stats);
                 
 	}
 

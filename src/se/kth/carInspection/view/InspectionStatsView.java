@@ -38,6 +38,10 @@ public class InspectionStatsView implements StatisticsObserver  {
     public int getTotal() {
         return failed+passed;
     }
+    
+    public int getPercentage(){
+        return (100*passed)/this.getTotal();
+    }
 
     
 }

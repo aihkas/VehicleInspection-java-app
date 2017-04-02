@@ -17,11 +17,11 @@ public class VehicleRegistrationRegistry {
 	}
 	
 	
-	public boolean  checkValidRegistry(RegistrationLiscenceDTO number) throws InvalidLicenseException{
+	public void  checkValidRegistry(RegistrationLiscenceDTO number) throws InvalidLicenseException{
 		
 		for(RegistrationLiscenceDTO liscence : registryList){
 			if((liscence.getRegistrationNumber()).equals(number.getRegistrationNumber())){
-				return true;
+				return;
 			}
 		}
                

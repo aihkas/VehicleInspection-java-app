@@ -37,7 +37,7 @@ public class CashPaymentTest {
  
     
     @Test (expected = NegativeAmountException.class)
-    public void testUpdatePaymentStatus2() throws NegativeAmountException,InsufficientPaidAmount {
+    public void testUpdatePaymentStatus2() throws NegativeAmountException {
         System.out.println("updatePaymentStatus test");
         Amount cost= new Amount(1);
         Amount paidmoney= new Amount(-1);

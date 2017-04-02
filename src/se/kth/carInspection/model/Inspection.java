@@ -1,6 +1,5 @@
 package se.kth.carInspection.model;
 
-import java.sql.Date;
 
 public class Inspection {
 	private int inspectionNumber;
@@ -22,9 +21,9 @@ public class Inspection {
 	    this.inspectionDate = System.currentTimeMillis();
 		}
 
-        public void updateStats(StatisticsObserver stats) {
-        stats.evaluate(this);
-}
+  // public void updateStats(StatisticsObserver stats) {
+   //     stats.evaluate(this);
+//}
 	
 	public void setStatus(InspectionStatus status){
 		this.status = status;

@@ -1,6 +1,5 @@
 package se.kth.carInspection.model;
 
-import java.util.Date;
 
 public class CreditCardDTO {
 	
